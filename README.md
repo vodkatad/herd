@@ -8,16 +8,17 @@ All'inizio del gioco ogni giocatore riceverà:
 
 2. tre appiccichini da usare per (eventualmente) diffondere la malattia: i _token infezione_
 
-3. un foglietto, che chiameremo _scheda del personaggio_, da tenere nascosto in tasca, che determina se siete stati vaccinati o meno contro la malattia e se
-per caso siete, sfortunatamente, il paziente zero (il primo ammalato di XXX). Il paziente zero partirà con un token infezione
+3. un foglietto, che chiameremo _scheda del personaggio_, da tenere nascosto in tasca, che determina se siate stati vaccinati o meno contro la malattia e se
+per caso siate, sfortunatamente, il paziente zero (il primo ammalato di herd). Il paziente zero partirà con un token infezione
 già incollato sulla _scheda del personaggio_ nell'area segnata come "infetto".
 
-Lo scopo globale del gioco è generare una simulazione della diffusione di XXX tra i giocatori, studiando come il numero dei
+Lo scopo globale del gioco è generare una simulazione della diffusione della malattia di nome __herd__ tra i giocatori, studiando come il numero dei
 malati cambi in base a quanti dei giocatori sono stati vaccinati.
 Lo scopo dei singoli giocatori è andare in giro per gli stand tenendo in vista il cartellino e se sono malati infettare
 i loro compagni di gioco, mentre se sono sani provare a restare tali! 
 Ad un'ora prefissata vi chiederemo di tornare allo stand __Everyday Science__ per determinare insieme
-il risultato della simulazione, confrontarlo con le altre e discuterne brevemente.
+il risultato della simulazione e discuterne brevemente. L'idea è quella di fare almeno due simulazioni lungo la serata con un numero
+di vaccinati di partenza differente.
 
 Come si gioca:
 Se siete infetti dovete avvicinare altri tre giocatori e provare ad infettarli, ci sono tre possibilità:
@@ -42,4 +43,4 @@ a difendervi a pari o dispari e in caso abbiate la peggio e guadagnate il vostro
 a diffondere l'infezione cercando tre altri giocatori da provare ad infettare.
 
 Alla fine della simulazione nello stand analizzeremo tutte le _schede del personaggio_ ed i vari _token_ che avrete
-guadagnato nell'area "infetto" o "resistente" per capire come è andata l'infezione di XXX.
+guadagnato nell'area "infetto" o "resistente" per capire come è andata l'infezione di herd.
