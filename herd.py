@@ -143,7 +143,7 @@ for vax in combo_vax:
 	    #print(str(res[0]) + "\t" + str(res[1]) + "\t" + str(res[2]) + "\t" + str(res[3]) + "\n")
 	print("sim: ", str(vax)+str(risk))
 	print("media infetti: ", i / tot)
-	print("print media vaccinati infetti: ", v / tot)
-	print("print media non vaccinati infetti:", nv / tot)
+	print("media vaccinati infetti: ", v / tot)
+	print("media non vaccinati infetti:", nv / tot)
 	f1.close()
 
