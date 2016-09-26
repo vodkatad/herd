@@ -1,0 +1,36 @@
+# Herd TODO
+## Un gioco di ruolo immunologico per la Notte dei Ricercatori 2016 ##
+### Istruzioni per i giocatori ###
+
+All'inizio del gioco ogni giocatore riceverà:
+1. un cartellino identificativo con spilla da balia da indossare in modo da riconoscere i vostri compagni di gioco
+2. tre appiccichini da usare per (eventualmente) diffondere la malattia: i token infezione
+3. un foglietto, da tenere nascosto in tasca, che determina se siete stati vaccinati o meno contro la malattia e se
+per caso siete, sfortunatamente, il paziente zero (il primo ammalato di XXX). Il paziente zero partirà con un token infezione
+già incollato su questo foglietto nell'area segnata come "infetto".
+
+Lo scopo globale del gioco è generare una simulazione della diffusione di XXX tra i giocatori, studiando come il numero dei
+malati cambia in base a quanti dei giocatori sono stati vaccinati.
+Lo scopo dei singoli giocatori è andare in giro per gli stand tenendo in vista il cartellino e se sono malati infettare
+i loro compagni di gioco, mentre se sono sani provare a restare tali! 
+Ad un'ora prefissata vi chiederemo di tornare allo stand "Everyday Science" per determinare insieme
+il risultato della simulazione, confrontarlo con le altre e discuterne brevemente.
+
+Come si gioca:
+Se siete infetti dovete avvicinare altri tre giocatori e provare ad infettarli, ci sono tre possibilità:
+1. il giocatore è già infetto - vi mostra il foglietto con (almeno) un token già appiccicato nell'area "infetto" a cui aggiungerete il vostro
+2. il giocatore è sano ma non è vaccinato: per riuscire ad infettarlo dovrete vincere contro di lui a "pari o dispari" in almeno
+una su tre partite. Infettare questi giocatori non dovrebbe essere molto difficile: appena vincerete una delle tre partite potrete
+incollare il vostro token sul suo foglietto nell'area "infetto". In caso le perdiate tutte e tre lui è stato molto fortunato e non si è ammalato:
+incollerete il token nell'area "resistente".
+3. il giocatore è sano ed è vaccinato: in questo caso per infettarlo dovrete vincere tutte e tre le partite di pari 
+o dispari. In caso riusciate a vincerle tutte e tre potrete incollare il token sul suo foglietto nell'area "infetto", altrimenti
+il vaccino avrà fatto il suo dovere e userete l'area "resistente".
+
+Qualsiasi sia l'esito dei tre incontri quando li avrete terminati avrete anche finito i token: sarete guariti dalla malattia XXX
+e non dovrete più fare nulla se non rispondere ad altri eventuali untori aggiungendo il loro token nell'area "infetto" del vostro foglietto senza 
+nessuna partita di "pari e dispari".
+
+Se non siete infetti non avete nessun compito: nel momento in cui verrete contattati da un altro giocatore dovrete provare
+a difendervi a pari e dispari e in caso abbiate la peggio e guadagnate il vostro primo token nell'area "infetto" dovrete iniziare
+a diffondere l'infezione cercando tre altri giocatori da provare ad infettare.
