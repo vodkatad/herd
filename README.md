@@ -34,12 +34,12 @@ incollerete il _token_ nell'area "resistente".
 o dispari. In caso riusciate a vincerle tutte e tre potrete incollare il _token_ sulla sua _scheda del personaggio_ nell'area "infetto", altrimenti
 il vaccino avrà fatto il suo dovere e userete l'area "resistente".
 
-Qualsiasi sia l'esito dei tre incontri quando li avrete terminati avrete anche finito i token: sarete guariti dalla malattia XXX
+Qualsiasi sia l'esito dei tre incontri quando li avrete terminati avrete anche finito i token: sarete guariti dalla malattia herd
 e non dovrete più fare nulla se non rispondere ad altri eventuali untori aggiungendo il loro token nell'area "infetto" della vostra _scheda del personaggio_ senza 
 nessuna partita di "pari e dispari".
 
 Se non siete infetti non avete nessun compito attivo: nel momento in cui verrete contattati da un altro giocatore dovrete provare
-a difendervi a pari o dispari e in caso abbiate la peggio e guadagnate il vostro primo token nell'area "infetto" dovrete iniziare
+a difendervi a pari o dispari e in caso abbiate la peggio e guadagniate il vostro primo token nell'area "infetto" dovrete iniziare
 a diffondere l'infezione cercando tre altri giocatori da provare ad infettare.
 
 Alla fine della simulazione nello stand analizzeremo tutte le _schede del personaggio_ ed i vari _token_ che avrete
