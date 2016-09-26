@@ -35,8 +35,11 @@ class Player():
         
     def get_risk_contact(self, spreader):
         res = False
+	#print("Contact")
+	#print(self)
+	#print(spreader)
         if spreader.get_tokens() >= 1:
-            #print "trying to infect!" + str(self)
+            #print("trying to infect!" + str(self))
             if not self._infected and (random.random() <= self._risk):
                     self._infected = True
                     res = True
@@ -69,10 +72,19 @@ class Simulation:
         return(self._players[rn])
 
     def step(self):
+	#print("stepping")
+	#print(self.total_tokens())
+	new_infected = []
         for inf in self._infected:
+	    #print("is infecting")
+	    #print(inf)
             other = self.give_other_random_player(inf)
             if other.get_risk_contact(inf):
-                self._infected.append(other)
+		#print("infection performed!")
+		#print(self.total_tokens())
+                new_infected.append(other)
+		#print(self.total_tokens())
+	self._infected.extend(new_infected)
             
     def __str__(self):
         res = "tot infetti: " + str(len(self._infected))
@@ -103,12 +115,14 @@ class Simulation:
             
 
 def run_simulation(vax, nvax, risk_vax, risk_nvax, tokens):
+    #print("starting")
     sim = Simulation(vax, nvax, tokens, risk_vax, risk_nvax)
     sim.start()
     nstep = 0
     while sim.total_tokens() != 0:
         sim.step()
 	nstep += 1
+    #print("finished")
     return [len(sim.get_infected())/float(vax+nvax), len(sim.get_vax_infected()) / float(vax), len(sim.get_nvax_infected()) / float(nvax), nstep]
 
 combo_vax = [(20,5),(10,15)]
@@ -126,6 +140,7 @@ for vax in combo_vax:
 	    v += res[1]
 	    nv += res[2]
 	    f1.write(str(res[0]) + "\t" + str(res[1]) + "\t" + str(res[2]) + "\t" + str(res[3]) + "\n")
+	    #print(str(res[0]) + "\t" + str(res[1]) + "\t" + str(res[2]) + "\t" + str(res[3]) + "\n")
 	print("sim: ", str(vax)+str(risk))
 	print("media infetti: ", i / tot)
 	print("print media vaccinati infetti: ", v / tot)
