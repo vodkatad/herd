@@ -64,8 +64,8 @@ class Simulation:
     def give_other_random_player(self, me):
         me_idx = self._players.index(me)
         rn = random.randrange(0, len(self._players))
-        while self._players[rn] == me_idx:
-            rn = random.randrange(0, nmax)
+        while rn == me_idx:
+            rn = random.randrange(0, len(self._players))
         return(self._players[rn])
 
     def step(self):
@@ -105,17 +105,14 @@ class Simulation:
 def run_simulation(vax, nvax, risk_vax, risk_nvax, tokens):
     sim = Simulation(vax, nvax, tokens, risk_vax, risk_nvax)
     sim.start()
+    nstep = 0
     while sim.total_tokens() != 0:
         sim.step()
-    return [len(sim.get_infected())/float(vax+nvax), len(sim.get_vax_infected()) / float(vax), len(sim.get_nvax_infected()) / float(nvax)]
+	nstep += 1
+    return [len(sim.get_infected())/float(vax+nvax), len(sim.get_vax_infected()) / float(vax), len(sim.get_nvax_infected()) / float(nvax), nstep]
 
-vax = 20
-nvax = 5
-combo_vax = [(25,5),(10,15)]
+combo_vax = [(20,5),(10,15)]
 combo_risks=[(0.125,1),(0.125, 0.875)]
-i = 0
-v = 0
-nv = 0
 tot = 1000
 for vax in combo_vax:
     for risk in combo_risks:
@@ -128,7 +125,7 @@ for vax in combo_vax:
 	    i += res[0]
 	    v += res[1]
 	    nv += res[2]
-	    f1.write(str(res[0]) + "\t" + str(res[1]) + "\t" + str(res[2]) + "\n")
+	    f1.write(str(res[0]) + "\t" + str(res[1]) + "\t" + str(res[2]) + "\t" + str(res[3]) + "\n")
 	print("sim: ", str(vax)+str(risk))
 	print("media infetti: ", i / tot)
 	print("print media vaccinati infetti: ", v / tot)
