@@ -1,3 +1,7 @@
 *xls
 *gnumeric
 *tsv
+misc/*
+*md
+.*
+*.png

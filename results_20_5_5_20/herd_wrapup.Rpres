@@ -1,0 +1,127 @@
+Virus Night: una simulazione collettiva di come funziona l'immunità di gruppo
+========================================================
+width: 1920
+height: 1080
+author: Molecular Biotechnology Center
+date: 30/09/2016 - La Notte dei Ricercatori
+autosize: true
+
+Risultati di 5000 simulazioni - percentuale infetti
+========================================================
+
+```{r, echo=FALSE, fig.width=8,fig.height=3.5,dpi=300,out.width="1920px",height="1080px"}
+library(ggplot2, quietly=TRUE)
+data <- read.table("results.tsv")
+colnames(data) <- c("h_infetti", "h_v_infetti","h_nv_infetti", "h_s", "nh_infetti", "nh_v_infetti","nh_nv_infetti", "nh_s")
+gplot_data <- data.frame(frazione_infetti=c(data$h_infetti, data$nh_infetti), simulazione=factor(c(rep("gregge 20-5", nrow(data)),rep("no gregge 5-20", nrow(data)))), frazione_nv_infetti=c(data$h_nv_infetti, data$nh_nv_infetti))
+p <- ggplot(gplot_data, aes(simulazione, frazione_infetti))
+p + geom_boxplot(aes(fill = simulazione))+xlab("")+scale_fill_manual(values=c("dodgerblue2", "red2"))
+cat(paste("Media con gregge: ", mean(data$h_infetti), sep="", collapse="\n"))
+cat(paste("Media senza gregge: ", mean(data$nh_infetti), sep="", collapse="\n"))
+```
+
+Risultati di 5000 simulazioni - percentuale non vaccinati infetti
+========================================================
+
+```{r, echo=FALSE, fig.width=8,fig.height=3.5,dpi=300,out.width="1920px",height="1080px"}
+p <- ggplot(gplot_data, aes(simulazione, frazione_nv_infetti))
+p + geom_boxplot(aes(fill = simulazione))+xlab("")+scale_fill_manual(values=c("dodgerblue2", "red2"))
+cat(paste("Media con gregge: ", mean(data$h_nv_infetti), sep="", collapse="\n"))
+cat(paste("Media senza gregge: ", mean(data$nh_nv_infetti), sep="", collapse="\n"))
+```
+
+Non tutte le simulazioni sono uguali!
+========================================================
+
+Come funziona il gregge
+========================================================
+
+
+
+Ma a cosa serve il gregge?
+========================================================
+Tanto varrebbe vaccinarsi tutti, no?
+
+Certo, pero` non tutti possono farlo
+- bambini troppo piccoli
+- soggetti con determinate patologie
+
+Le simulazioni realistiche sono complesse
+========================================================
+
+- rete sociale
+- movimenti tra citta` e stati
+- diverse malattie con sintomi diversi, infettivita` diversa, ...
+
+http://fred.publichealth.pitt.edu/measles/
+
+Tech garbage
+========================================================
+<style type="text/css">
+.reveal pre {   
+  margin-top: 0;
+  max-width: 95%;
+  border: 1px solid #ccc;
+  white-space: pre-wrap;
+  margin-bottom: 1em; 
+}
+
+.reveal pre code {
+  display: block; padding: 0em;
+  font-size: 1.5em;
+  line-height: 1.1em;
+  background-color: white;
+  #overflow: scroll;
+  max-height: none;
+  word-wrap: normal;
+}
+
+.reveal code {
+  overflow: visible;
+  max-height: none;
+}
+
+
+</style>
+```{r, echo=TRUE}
+summary(data)
+```
+
+Tech garbage 2
+========================================================
+```{r, echo=TRUE}
+wilcox.test(data$h_infetti, data$nh_infetti)
+wilcox.test(data$h_nv_infetti, data$nh_nv_infetti)
+```
+
+Tech garbage 3
+========================================================
+```{r, echo=TRUE}
+none_h <- 2/5
+none_nh <- 2/10
+nrow(data[data$h_nv_infetti==none_h,])/5000
+nrow(data[data$nh_nv_infetti==none_nh,])/5000
+nrow(data[data$h_nv_infetti==1,])/5000
+nrow(data[data$nh_nv_infetti==1,])/5000
+```
+
+Tech garbage 4
+========================================================
+```{r, echo=TRUE,fig.width=8,fig.height=3.5,dpi=300,out.width="1920px",height="1080px"}
+plot(density(data$h_nv_infetti), col="blue")
+lines(density(data$nh_nv_infetti), col="red")
+```
+
+Tech garbage 5
+========================================================
+```{r, echo=TRUE,fig.width=8,fig.height=3.5,dpi=300,out.width="1920px",height="1080px"}
+plot(density(data$h_infetti), col="blue")
+lines(density(data$nh_infetti), col="red")
+```
+
+Tech garbage 6
+========================================================
+```{r, echo=TRUE,fig.width=8,fig.height=3.5,dpi=300,out.width="1920px",height="1080px"}
+plot(density(data$h_v_infetti), col="blue")
+lines(density(data$nh_v_infetti), col="red")
+```
