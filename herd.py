@@ -18,13 +18,17 @@ class Player():
     
     def become_patient_zero(self):
         self._infected= True
+	#self.set_tokens(6)
     
     def is_recovered(self):
         return self._recovered
     
     def get_tokens(self):
         return self._tokens
-    
+ 	
+    def set_tokens(self, tokens):
+	self._tokens = tokens
+   
     def use_token(self):
         if self._tokens <= 0:
             print("Something went wrong, token out and infection tried")
@@ -103,6 +107,9 @@ class Simulation:
     def get_infected(self):
         return [x for x in self._players if x.is_infected()]
     
+    def get_recovered(self):
+        return [x for x in self._players if x.is_recovered()]
+
     def print_players(self):
         for p in self._players:
             print(p)
@@ -114,7 +121,7 @@ class Simulation:
         return tokens
             
 
-def run_simulation(vax, nvax, risk_vax, risk_nvax, tokens):
+def run_simulation(vax, nvax, risk_vax, risk_nvax, tokens, logfile, number):
     #print("starting")
     sim = Simulation(vax, nvax, tokens, risk_vax, risk_nvax)
     sim.start()
@@ -122,28 +129,35 @@ def run_simulation(vax, nvax, risk_vax, risk_nvax, tokens):
     while sim.total_tokens() != 0:
         sim.step()
 	nstep += 1
+    	f2.write(str(len(sim.get_infected()))+"\t"+ str(len(sim.get_vax_infected()))+"\t"+str(len(sim.get_nvax_infected()))+"\t"+str(len(sim.get_recovered()))+"\t"+str(nstep) + "\t" + str(number) + "\n")
     #print("finished")
     return [len(sim.get_infected())/float(vax+nvax), len(sim.get_vax_infected()) / float(vax), len(sim.get_nvax_infected()) / float(nvax), nstep]
 
-combo_vax = [(20,5),(10,15)]
-combo_risks=[(0.125,1),(0.125, 0.875)]
-tot = 1000
+combo_vax = [(20,5),(5,20)]
+combo_risks=[(0.125, 0.875)]
+#combo_risks=[(0.125,1),(0.125, 0.875)]
+tot = 5000
 for vax in combo_vax:
     for risk in combo_risks:
         f1=open('herd'+str(vax)+str(risk)+".tsv", 'w+')
+        f2=open('herd'+str(vax)+str(risk)+".long_tsv", 'w+')
 	i = 0
 	v = 0
 	nv = 0
+	st = 0
 	for x in range(tot):
-	    res = run_simulation(vax[0], vax[1], risk[0], risk[1], 3)
+	    res = run_simulation(vax[0], vax[1], risk[0], risk[1], 3, f2, x)
 	    i += res[0]
 	    v += res[1]
 	    nv += res[2]
+	    st += res[3]
 	    f1.write(str(res[0]) + "\t" + str(res[1]) + "\t" + str(res[2]) + "\t" + str(res[3]) + "\n")
 	    #print(str(res[0]) + "\t" + str(res[1]) + "\t" + str(res[2]) + "\t" + str(res[3]) + "\n")
 	print("sim: ", str(vax)+str(risk))
 	print("media infetti: ", i / tot)
 	print("media vaccinati infetti: ", v / tot)
 	print("media non vaccinati infetti:", nv / tot)
+	print("media step:", st / tot)
 	f1.close()
+	f2.close()
 
